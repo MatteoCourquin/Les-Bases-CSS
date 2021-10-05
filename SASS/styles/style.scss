@@ -1,0 +1,96 @@
+$couleur-txt-base: midnightblue;
+
+.item{
+    color: $couleur-txt-base;
+}
+
+// LE NESTING
+
+.container{
+    background: #000;
+
+    ul{
+        list-style-type: none;
+
+        .item{
+            background: lightblue;
+            transition: 1s;
+            
+            &:hover{
+                background: crimson;
+            }
+        }
+    }
+}
+
+// LES MIXINS
+
+@mixin flex-mid($fond) {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    @if $fond == 3 {
+        border-radius: 50%;
+    }
+}
+@mixin marg-base(){
+    margin: 20px
+}
+@mixin position-center($fond, $x: 50%, $y: 50%){ // Valeurs par défaut entre parenteses
+    position: absolute;
+    top: $x;
+    left: $y;
+    transform: translate(-$x, -$y);  
+
+
+}
+
+.box{
+    @include flex-mid(3);
+    // @include position-center;
+    @include marg-base;
+    width: 300px;
+    height: 300px;
+    background: salmon;
+    
+    .box2{
+        width: 100px;
+        height: 100px;
+        background: red;
+    }
+}
+
+// LES FONCTIONS
+
+@function add($a, $b){
+    @return $a + $b;
+}
+
+body{
+    height: add(50vh, 50vh);
+    flex-direction: column;
+}
+
+// EXTEND
+
+.txt{
+    font-size: 20px;
+    font-family: sans-serif;
+}
+
+.txt2{
+    @extend .txt;
+    color: lightblue
+}
+
+// LES BOUCLES FOR
+
+@for $i from 1 to 21 {
+    
+    .item#{$i}{
+        font-size: 10px + $i * 1;
+        @debug "valeur de font size : #{30px + $i *1}"
+    }
+}
+

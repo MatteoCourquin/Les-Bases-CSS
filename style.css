@@ -1,0 +1,504 @@
+*, ::before, ::after{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+
+
+/* UNITÉS DE MESURES */
+
+/* relatives (a un ecran, a un containeur, a un element...): */
+
+a{
+    width: 1vh; /* = viewport height (hauteur d'écran) */
+}
+
+/* absolues (ne change en aucun cas.): */
+a{
+    width: 50%; /* = pourcentages */
+    width: 20px /* = pixels */
+}
+
+
+
+/* LES DISPLAYS */
+
+a{
+    display: inline; /* prend juste son contenu */
+    display: block; /* prend toute la ligne */
+    display: inline-block; /* entre deux (prend en compte les width:height) */
+    display: none; /* supprime l'élément */
+}
+
+
+
+/* BACKGROUND */
+
+div{
+    background: repeat position / size url(../image.jpg); /* regrouper toutes les propriétés en une */
+}
+
+
+/* FONTS */
+
+p{
+    font-family: 'Abril Fatface', Arial; /* mettre des guillemets quand on importe la police. */
+    font: style weight size / height family; /* regrouper toutes les propriétés en une */
+
+    white-space: nowrap; /* le texte ne se met jamais a la ligne. */
+
+    text-transform:
+    uppercase /* texte en majuscule */,
+    lowercase /* texte en minuscule */,
+    capitalize/* majuscule a chaque debut de mots */;
+
+    text-decoration:
+    underline /* surligne */,
+    overline /* surligne au dessus */,
+    line-through /* barre le texte */,
+    letter-spacing /* espace entre les lettres */;
+}
+
+
+
+/* OMBRES */
+
+/* X | Y | blur-radius | spread-radius | couleur | ombre interieur */
+.box{
+    box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2) inset;
+    text-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2) inset;
+}
+
+
+
+/* BOUTTON */
+/* les propriétés de base */
+button{
+    display: inline-block;
+    text-align: center;
+    padding: 10px 15px;
+    cursor: pointer;
+    font-size: 22px;
+    border-radius: 5px;
+    background-color: #359ee4;
+    color: #f1f1f1;
+
+    /* astuce pour centrer du texte dans un boutton : */
+    line-height: 100px /* lui donner la hauteur de son boutton */;
+}
+
+
+
+/* POSITION */
+/* centrer un element : */
+.box{
+    /* position: absolute; */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+
+
+/* PSEUDOS-CLASSES */
+.box{
+    background: salmon;
+}
+
+.box:active{
+    background: crimson;
+    /* active les propriétés au clique (crimson) */
+}
+
+.box:hover{
+    background: crimson;
+    /* active les propriétés au survol (crimson) */
+}
+
+input:focus{
+    background: lightblue;
+    /* active les propriétés au clique (a attribué a des elements qu'ont peut selectionner ou remplir) */
+}
+
+input:checked{
+    width: 50px;
+    height: 50px;
+    /* active les propriétés une fois l'élément checker (peut etre utilisé pour faire un interrupteur) */
+}
+
+a:visited{
+    color: violet;
+    /* active les propriétés une fois le lien visiter */
+}
+
+li:nth-child(3) /* (odd) pour les chiffes impaires | (even) pour les chiffres paires */ {
+    background: red;
+    /* active la propriété sur ma 3eme <li> */
+}
+
+p:not(.item2){
+    color: lightgreen;
+    /* tout les paragraphes sauf "item2" auront la couleur "lightgreen" */
+}
+
+
+
+/* BORDER */
+
+.box{
+    border: 1px solid black;
+    /* border-width | border-style | border-color */
+}
+
+/* Création intéresantes avec border-radius: */
+/* https://9elements.github.io/fancy-border-radius/ */
+
+
+
+/* PSEUDOS ÉLÉMENTS */
+
+h1::first-letter{
+    color: blue;
+    font-size: 200px;
+    /* applique les propriétés a la premiere lettre */
+}
+
+p::first-line{
+    font-style: italic;
+    /* applique les propriétés a la premiere ligne */
+}
+
+p::before{
+    content: " "; /* propriété obligatoire pour les pseudos éléments before et after */
+    width: 100%;
+    height: 5px;
+    background: red;
+    /* ajoute une ligne rouge de 5px sur toute la longueur avant le p */
+    /* peut etre utiliser pour faire un effet de souligner */
+}
+
+p::after{
+    content: " "; /* propriété obligatoire pour les pseudos éléments before et after */
+    width: 100%;
+    height: 5px;
+    background: red;
+    /* ajoute une ligne rouge de 5px sur toute la longueur après le p */
+    /* peut etre utiliser pour faire un effet de souligner */
+}
+
+.txt::selection{
+    background: coral;
+    /* le texte sera surligné en "coral" au lieu du bleu lors de sa selection avec la souris */
+}
+
+
+
+/* FONCTION CALC */
+
+.titre{
+    width: calc(100% - 20px);
+    /* peut calculer des valeurs différentes pour donner une dimension */
+}
+
+
+
+/* OVERFLOW */
+.box{
+    overflow: hidden;
+    /* cache l'éccedent qui dépasse du conteneur; */
+
+    overflow: visible;
+    /* affiche l'éccedent qui dépasse du conteneur; */
+
+    overflow: auto;
+    /* ajoute une scroll-bar au besoin */
+
+    overflow: scroll;
+    /* ajoute une scroll-bar en X et en Y */
+}
+
+
+
+/* TRASFORM */
+
+.box{
+    transform: translate(20px, -30px);
+    /* déplace l'élément de 20px sur X et -30px sur Y de sa position initial */
+
+    transform: rotate(30deg);
+    /* fait tourner l'élément de 30 degrés */
+
+    transform: scale(3);
+    /* agrandi l'élément 3 fois */
+
+    transform: skew(30deg);
+    /* créé une distorsion de 30 degrés de sa position d'origine (déformation de l'élément) */
+
+    transform: rotate(30deg) scale(2) translate(20px);
+    /* On peut accumuler les valeurs */
+}
+
+
+
+/* TRANSITIONS */
+
+.box{
+    transition: transform 1sec ease-in-out 0s;
+    /* transition: property | duration | timing-function | delay ; */
+    /* voir la courbe "cubic bézier" dans la console pour personnalisé timing-function */
+
+    transition:
+    transform 0.3s ease-in 0s,
+    opacity 0.2s ease 0.3s,
+    background-color 0.5 ease 0s;
+    /* avec la virgule on peut combiner des valeurs  */
+}
+.box:hover{
+    transform: rotate(45deg);
+}
+
+
+
+/* ANIMATIONS */
+
+/* je créer mon animation */
+@keyframes spin {
+    /* à 0% elle prend ces valeurs : */
+    0%{
+        transform: rotate(0deg);
+    }
+    /* à 50% elle prend ces valeurs : */
+    50%{
+        background: red;
+    }
+    /* à 100% elle prend ces valeurs : */
+    100%{
+        transform: rotate(180deg);
+    }
+    /* On peut écrire (From > To) a la place de (0% > 100%) */
+}
+/* Liste des propriétés CSS animables */
+/* https://developer.mozilla.org/fr/docs/Web/CSS/CSS_animated_properties */
+
+.box{
+    /* je l'appelle pour l'activer (peut etre activer dans une pseudo-classe (hover,active...)) */
+    animation: spin 2s;
+
+    /* les différentes propriétés : */
+    animation-name: spin; /* l'animation s'appelle "spin" */
+    animation-duration: 1s; /* l'animation va durer 1 seconde */
+    animation-iteration-count: infinite; /* l'animation va se jouer a l'infinie */
+    animation-fill-mode:
+    forwards, /* l'élément va rester aux dernieres valeurs données de l'animation */
+    backwards; /* l'animation va revenir a ses valeurs initiales */
+    animation-direction:
+    reverse, /* l'animaton va se jouer a l'envers */
+    alternate; /* fonctionne seulement avec un infinite (l'animation va se jouer : À l'envers > À l'endroit > À l'envers > À l'endroit... */
+    animation-timing-function: ease-in; /* l'animation va etre plus lente au début */
+
+    /* on peut combiner toutes ses valeurs en une */
+    animation: spin 2s ease-in-out forwards;
+}
+
+/* __________________________________________________________________________________ */
+
+/* notions avancées  */
+
+/* LES DÉGRADÉS */
+
+body{
+    background: linear-gradient(to right, #f1f1f1, 10%, #359ee4, crimson);
+    /* direction | couleur 1 | démarage a 10% du début du dégradé | couleur 2 | couleur 3 */
+
+    background: radial-gradient(#f1f1f1, #359ee4);
+    /* le dégradé par du milieu */
+}
+
+
+/* LES FILTRES */
+
+img{
+    filter: blur(5px);
+    /* ajoute du flou (applicable sur du texte) */
+
+    filter: contrast(100%);
+    /* gere le contraste */
+
+    filter: grayscale(100%);
+    /* noir et blanc */
+
+    filter: invert(100%);
+    /* inverse les couleurs */
+
+    filter: opacity(10%);
+    /* gere l'opacité */
+
+    filter: sepia(80%);
+    /* ajoute le filtre sépia */
+
+    filter: saturate(200%);
+    /* gere la saturation */
+
+    filter: hue-rotate(50deg);
+    /* tourner les couleurs sur la roue cromatique */
+
+    filter: drop-shadow(0px, 20px, 30px, #000);
+    /* utile pour les ombres des lettres */
+
+    filter: blur(10px) opacity(40%);
+    /* accumulé des valeurs en une */
+}
+
+/* VENDORS */
+
+.box{
+    /* utile pour forcer une propriété CSS lorsqu'un navigateur ne la prend pas en compte */
+    transition: none;
+    -o-transition: none;
+    -moz-transition: none;
+    -webkit-transition: none;
+    -ms-transition: none;
+}
+
+/* FORME avec clip-path */
+
+.img{
+    /* Faire un cercle de 20% de la taille de l'élément */
+    clip-path: circle(20%);
+
+    /* Faire un polygon en ajoutant des points d'encrage */
+    clip-path: polygon(50% 0%, 0% 100%, 100% 100%); /* génere un triangle */
+}
+
+
+/* FLEXBOX */
+.box{
+    display: flex; /* Je déclare l'utilisation de flex box */
+    justify-content: center; /* aligne mon contenu sur l'axe X au centre */
+    align-items: center; /* aligne mon contenu sur l'axe Y au centre */
+    flex-wrap: wrap; /* Par manque de place les items passent a la ligne */
+    flex-direction: column; /* Mettre les items en colonne ou en ligne */
+    flex-shrink: 1; /* Par manque de place les items rétrécicent */
+    flex-grow: 1; /* Les items vont se partager l'espace disponible */
+    flex-basis: 150px; /* = a width */
+    align-content: center; /* aligne les items quand ils vont a la ligne */
+
+    /* Tout écrire dans une meme propriété */
+    flex: 0 1 150px ;
+    /* flex: grow | shrink | basis; */
+}
+.box-child{
+    align-self: center; /* aligne cet item au centre */
+    order: 3; /* change l'ordre (il passe a la 3eme place) */
+    flex-flow: wrap column; /* regroupe flex-wrap et flex-direction */
+}
+
+
+
+/* CSS GRID */
+
+/* Les grilles explicites (créée par nous) */
+.containeur{
+    display: grid; /* Je déclare CSS Grid */
+    
+    grid-template-columns: max-content repeat(3, 20px) 30px; /* Je créé mes colonnes (1 de la largeur du contenu + 3 X 20px + 1 de 30px) */
+    grid-template-rows: 20px 20px 20px 1fr; /* Je créé mes lignes (3 de 20px + 1 du reste de la place) */
+    grid-column-gap: 10px; /* Je créé des marges entre les colonnes */
+    grid-row-gap: 10px; /* Je créé des marges entre les lignes */
+    grid-gap: 10px; /* Je créé des marges entre les colonnes et les lignes */
+    
+    /* Nommer */
+    grid-template-rows: [header-start]20px 20px [header-end contenu-start] 20px [contenu-end] 1fr; /* Nommer mes lignes / colonnes */
+    grid-template-areas: "head head head" /* Mes zone hautes s'appellent "head" */
+    "foot foot foot"; /* Mes zone basses s'appellent "foot" */
+    /* !! Toutes les cellules doivent être nommer ("." pour cellent qui n'ont pas de nom) !! */
+}
+
+.item{ 
+    /* Placement sur les lignes */
+    grid-row-start: 2; /* Débute a la 2eme ligne */
+    grid-row-end: 3; /* Fini a la 3eme ligne */
+    /* meme resultat  */
+    grid-row: 2 / 3; /* Se place entre la 2eme et la 3eme ligne */
+    
+    /* Placement sur les colonnes */
+    grid-column-start: 1; /* Débute a la 1ere colonne */
+    grid-column-end: 4; /* Fini a la 4eme colonne */
+    /* meme resultat  */
+    grid-column: 1 / 4; /* Se place entre la 1eme et la 4eme colonne */
+    
+    /* Regroupe le placement des lignes et des colonnes (méthode déconseillée car compliqué) */
+    grid-area: 2 / 2 / 3 / 3; 
+    /* start 2eme ligne | start 2eme colonne | end 3eme ligne | end 3eme colonne */
+    
+    /* placer avec le nommage */
+    grid-area: head; /* l'élément prendra toutes les cellules "head" */
+}
+
+
+/* Les grilles implicites créée par CSS grid par manque de place */
+.containeur{
+    grid-auto-rows: 50px; /* Toutes les lignes créée automatiquement feront 50px */
+    grid-auto-columns: 50px; /* Toutes les colonnes créée automatiquement feront 50px */
+
+    grid-auto-flow: column; /* les éléments en trop s'ajouteront sur des colonnes */
+    grid-auto-flow: row; /* les éléments en trop s'ajouteront sur des lignes */
+}
+
+
+/* Aligner et centrer le contenu */
+.containeur{
+    align-items:    center, /* se centre */
+                    start, /* s'aligne au début */ 
+                    end, /* s'aligne a la fin */
+                    stretch; /* prend toute la place (propriété par defaut) */ 
+    
+    justify-items:  center, /* se centre */
+                    start, /* s'aligne au début */ 
+                    end, /* s'aligne a la fin */
+                    stretch; /* prend toute la place (propriété par defaut) */ ;
+}
+/* Aligner et centrer par cellule unique */
+.item4{
+    align-self: center, /* se centre */
+                start, /* s'aligne au début */ 
+                end, /* s'aligne a la fin */
+                stretch; /* prend toute la place (propriété par defaut) */ ;
+
+    justify-self:   center, /* se centre */
+                    start, /* s'aligne au début */ 
+                    end, /* s'aligne a la fin */
+                    stretch; /* prend toute la place (propriété par defaut) */ ;
+}
+
+
+/* Aligner et centrer sa grille */
+.containeur{
+    justify-content:    center, /* La grille est centrer sur X */
+                        space-between, /* Espace entre les items */
+                        space-around, /* Espace autour des items */
+                        end, /* Aligne a la fin */
+                        start, /* Aligne au debut */
+                        space-evenly; /* Le meme espace entre et autour des items */
+
+
+
+    align-content:  center, /* La grille est centrer sur X */
+                    space-between, /* Espace entre les items */
+                    space-around, /* Espace autour des items */
+                    end, /* Aligne a la fin */
+                    start, /* Aligne au debut */
+                    space-evenly; /* Le meme espace entre et autour des items */
+}
+
+/* propiété complexe : 
+max/min-content (https://www.ecole-du-web.net/courses/788654/lectures/14317685)
+auto-fit/fill (https://www.ecole-du-web.net/courses/788654/lectures/14317683) */
+
+/* tips pour responsive CSS Grid */
+.containeur{
+    grid-template-columns: repeat(auto-fit, min-max(150px, 1fr));
+    /* Les items qu'il contient vont se réparir l'espace jusqu'a atteindre 150px. 
+    Une fois 150px atteint ils iront a la lignes et se répartiront de nouveau l'espce sur moins de colonnes */
+}

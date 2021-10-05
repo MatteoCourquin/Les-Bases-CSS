@@ -1,0 +1,142 @@
+.item {
+  color: midnightblue;
+}
+
+.container {
+  background: #000;
+}
+
+.container ul {
+  list-style-type: none;
+}
+
+.container ul .item {
+  background: lightblue;
+  -webkit-transition: 1s;
+  transition: 1s;
+}
+
+.container ul .item:hover {
+  background: crimson;
+}
+
+.box {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border-radius: 50%;
+  margin: 20px;
+  width: 300px;
+  height: 300px;
+  background: salmon;
+}
+
+.box .box2 {
+  width: 100px;
+  height: 100px;
+  background: red;
+}
+
+body {
+  height: 100vh;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.txt, .txt2 {
+  font-size: 20px;
+  font-family: sans-serif;
+}
+
+.txt2 {
+  color: lightblue;
+}
+
+.item1 {
+  font-size: 11px;
+}
+
+.item2 {
+  font-size: 12px;
+}
+
+.item3 {
+  font-size: 13px;
+}
+
+.item4 {
+  font-size: 14px;
+}
+
+.item5 {
+  font-size: 15px;
+}
+
+.item6 {
+  font-size: 16px;
+}
+
+.item7 {
+  font-size: 17px;
+}
+
+.item8 {
+  font-size: 18px;
+}
+
+.item9 {
+  font-size: 19px;
+}
+
+.item10 {
+  font-size: 20px;
+}
+
+.item11 {
+  font-size: 21px;
+}
+
+.item12 {
+  font-size: 22px;
+}
+
+.item13 {
+  font-size: 23px;
+}
+
+.item14 {
+  font-size: 24px;
+}
+
+.item15 {
+  font-size: 25px;
+}
+
+.item16 {
+  font-size: 26px;
+}
+
+.item17 {
+  font-size: 27px;
+}
+
+.item18 {
+  font-size: 28px;
+}
+
+.item19 {
+  font-size: 29px;
+}
+
+.item20 {
+  font-size: 30px;
+}
+/*# sourceMappingURL=style.css.map */
